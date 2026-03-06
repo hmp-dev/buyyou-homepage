@@ -93,8 +93,8 @@
       50% { transform: translateY(-10px); }
     }
     @keyframes swipe-hint {
-      0%, 100% { transform: translateX(0); opacity: 1; }
-      50% { transform: translateX(8px); opacity: 0.5; }
+      0%, 100% { transform: translateX(-4px); opacity: 1; }
+      50% { transform: translateX(4px); opacity: 0.5; }
     }
     .swipe-hint-icon { animation: swipe-hint 1.5s ease-in-out infinite; }
 
@@ -252,7 +252,7 @@
     <!-- Swipe hint below phone -->
     <div class="relative z-10 mt-6 flex flex-col items-center gap-4">
       <div class="flex items-center gap-2 text-gray-400 text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 swipe-hint-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 swipe-hint-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3m4-4L3 12m0 0l4 4"/></svg>
         좌우로 스와이프 해보세요
       </div>
       <div class="mt-2 text-center">
