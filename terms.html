@@ -7,36 +7,43 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="description" content="BuyYou 서비스 이용약관" />
+  <meta name="theme-color" content="#1047C2" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body { background: #ffffff; color: #0f172a; }
     .gradient-text {
-      background: linear-gradient(135deg, #d4e156 0%, #a8c030 100%);
+      background: linear-gradient(135deg, #1047C2 0%, #2c63d3 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    .glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+    }
   </style>
 </head>
-<body class="bg-dark-900 text-white antialiased">
+<body class="antialiased">
 
   <!-- Navigation -->
-  <nav class="border-b border-white/5 bg-dark-900/95 backdrop-blur sticky top-0 z-50">
+  <nav class="border-b border-slate-200/70 glass sticky top-0 z-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-xl font-light tracking-wider">Buy<span class="gradient-text font-semibold">You</span></a>
-        <a href="index.html" class="text-sm text-gray-400 hover:text-white transition">← 홈으로</a>
+        <a href="index.html" class="text-xl font-light tracking-wider text-slate-900">Buy<span class="gradient-text font-semibold">You</span></a>
+        <a href="index.html" class="text-sm text-slate-600 hover:text-primary-600 transition">← 홈으로</a>
       </div>
     </div>
   </nav>
 
   <!-- Content -->
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-3xl font-bold mb-2">서비스 이용약관</h1>
-    <p class="text-sm text-gray-500 mb-10">최종 업데이트: 2026년 3월 19일</p>
+    <h1 class="text-3xl font-bold mb-2 text-slate-900">서비스 이용약관</h1>
+    <p class="text-sm text-slate-500 mb-10">최종 업데이트: 2026년 3월 19일</p>
 
-    <div class="space-y-8 text-sm text-gray-300 leading-relaxed">
+    <div class="space-y-8 text-sm text-slate-700 leading-relaxed">
 
       <p>
         본 약관은 주식회사 하이드미플리즈(이하 "회사")가 운영하는 모바일 애플리케이션 "BuyYou"(이하 "서비스")의 
@@ -44,30 +51,30 @@
       </p>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제1조 (목적)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제1조 (목적)</h2>
         <p>이 약관은 회사가 제공하는 BuyYou 서비스의 이용과 관련하여 회사와 회원 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제2조 (정의)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제2조 (정의)</h2>
         <div class="space-y-2">
-          <p><strong class="text-white">"서비스"</strong>라 함은 회원이 모바일 애플리케이션을 통해 인사이트를 등록·구매·매칭할 수 있도록 회사가 제공하는 BuyYou 플랫폼을 말합니다.</p>
-          <p><strong class="text-white">"회원"</strong>이라 함은 본 약관에 동의하고 회사가 제공하는 서비스를 이용하는 자를 말합니다.</p>
-          <p><strong class="text-white">"인사이트"</strong>라 함은 회원이 등록한 개인적 경험, 지식, 노하우 등을 공유하는 콘텐츠를 의미하며, 법률·세무·의료 등 관련 법령에 의해 유자격자만 수행할 수 있는 전문직 업무의 수행은 포함되지 않습니다.</p>
-          <p><strong class="text-white">"결제"</strong>라 함은 회원이 인사이트를 구매하기 위해 회사가 제공하는 결제수단을 통해 대금을 지불하는 행위를 말합니다.</p>
-          <p><strong class="text-white">"판매자"</strong>라 함은 인사이트를 등록하여 구매자에게 제공하는 만 19세 이상의 회원을 말합니다.</p>
-          <p><strong class="text-white">"구매자"</strong>라 함은 인사이트를 구매하는 회원을 말합니다.</p>
-          <p><strong class="text-white">"에스크로"</strong>라 함은 구매자의 결제 금액을 미팅 완료 확인 시까지 회사가 안전하게 보관하는 결제 보호 방식을 말합니다.</p>
-          <p><strong class="text-white">"취소 위약금"</strong>이라 함은 구매자가 인사이트 구매를 취소할 때 판매자의 기회비용 보상을 위해 환불 금액에서 차감되는 고정 금액을 말합니다.</p>
-          <p><strong class="text-white">"플랫폼"</strong>이라 함은 회원 간 경험·지식 공유를 위해 회사가 운영하는 BuyYou 서비스를 말합니다. 회사는 전자상거래법 제20조의2 및 제20조의3에 따른 책임을 부담합니다.</p>
-          <p><strong class="text-white">"통신판매중개자"</strong>라 함은 「전자상거래 등에서의 소비자보호에 관한 법률」(이하 "전자상거래법") 제2조 제4호에 따라 사이버몰의 이용을 허락하거나 그 밖의 방법으로 거래 당사자 간의 통신판매를 알선하는 자를 말하며, 회사는 통신판매중개자에 해당합니다.</p>
-          <p><strong class="text-white">"지급대행"</strong>이라 함은 구매자의 결제 대금을 KG이니시스 등 전자결제대행업체(PG사)가 수납하고, 거래 확정 후 판매자에게 정산·지급하는 서비스를 말합니다.</p>
-          <p><strong class="text-white">"청약철회"</strong>라 함은 전자상거래법 제17조에 따라 구매자가 일정 기간 내에 구매 의사를 철회하는 것을 말합니다.</p>
+          <p><strong class="text-slate-900">"서비스"</strong>라 함은 회원이 모바일 애플리케이션을 통해 인사이트를 등록·구매·매칭할 수 있도록 회사가 제공하는 BuyYou 플랫폼을 말합니다.</p>
+          <p><strong class="text-slate-900">"회원"</strong>이라 함은 본 약관에 동의하고 회사가 제공하는 서비스를 이용하는 자를 말합니다.</p>
+          <p><strong class="text-slate-900">"인사이트"</strong>라 함은 회원이 등록한 개인적 경험, 지식, 노하우 등을 공유하는 콘텐츠를 의미하며, 법률·세무·의료 등 관련 법령에 의해 유자격자만 수행할 수 있는 전문직 업무의 수행은 포함되지 않습니다.</p>
+          <p><strong class="text-slate-900">"결제"</strong>라 함은 회원이 인사이트를 구매하기 위해 회사가 제공하는 결제수단을 통해 대금을 지불하는 행위를 말합니다.</p>
+          <p><strong class="text-slate-900">"판매자"</strong>라 함은 인사이트를 등록하여 구매자에게 제공하는 만 19세 이상의 회원을 말합니다.</p>
+          <p><strong class="text-slate-900">"구매자"</strong>라 함은 인사이트를 구매하는 회원을 말합니다.</p>
+          <p><strong class="text-slate-900">"에스크로"</strong>라 함은 구매자의 결제 금액을 미팅 완료 확인 시까지 회사가 안전하게 보관하는 결제 보호 방식을 말합니다.</p>
+          <p><strong class="text-slate-900">"취소 위약금"</strong>이라 함은 구매자가 인사이트 구매를 취소할 때 판매자의 기회비용 보상을 위해 환불 금액에서 차감되는 고정 금액을 말합니다.</p>
+          <p><strong class="text-slate-900">"플랫폼"</strong>이라 함은 회원 간 경험·지식 공유를 위해 회사가 운영하는 BuyYou 서비스를 말합니다. 회사는 전자상거래법 제20조의2 및 제20조의3에 따른 책임을 부담합니다.</p>
+          <p><strong class="text-slate-900">"통신판매중개자"</strong>라 함은 「전자상거래 등에서의 소비자보호에 관한 법률」(이하 "전자상거래법") 제2조 제4호에 따라 사이버몰의 이용을 허락하거나 그 밖의 방법으로 거래 당사자 간의 통신판매를 알선하는 자를 말하며, 회사는 통신판매중개자에 해당합니다.</p>
+          <p><strong class="text-slate-900">"지급대행"</strong>이라 함은 구매자의 결제 대금을 KG이니시스 등 전자결제대행업체(PG사)가 수납하고, 거래 확정 후 판매자에게 정산·지급하는 서비스를 말합니다.</p>
+          <p><strong class="text-slate-900">"청약철회"</strong>라 함은 전자상거래법 제17조에 따라 구매자가 일정 기간 내에 구매 의사를 철회하는 것을 말합니다.</p>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제3조 (약관의 효력 및 변경)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제3조 (약관의 효력 및 변경)</h2>
         <div class="space-y-2">
           <p>1. 본 약관은 서비스 내 공지 또는 회사가 정하는 방법으로 회원에게 고지함으로써 효력이 발생합니다.</p>
           <p>2. 회사는 관련 법령을 위반하지 않는 범위에서 약관을 변경할 수 있으며, 변경된 약관은 시행 7일 전부터 공지합니다.</p>
@@ -76,14 +83,14 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제4조 (회원 가입 및 자격 제한)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제4조 (회원 가입 및 자격 제한)</h2>
         <div class="space-y-2">
           <p>1. 회원 가입은 만 14세 이상부터 가능합니다.</p>
           <p>2. 만 14세 이상 만 19세 미만 회원은 인사이트 구매 서비스만 이용할 수 있으며, 인사이트 등록(판매)은 불가합니다.</p>
           <p>3. 만 19세 이상 회원은 인사이트 구매 및 등록(판매) 모두 가능합니다.</p>
           <p>4. 만 14세 이상 만 19세 미만 미성년 회원의 서비스 이용 및 결제는 법정대리인의 동의를 요하며, 법정대리인은 미성년자의 계약을 취소할 수 있습니다.</p>
           <p>5. 회사는 다음 사유가 있는 경우 회원 가입을 제한하거나 취소할 수 있습니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 타인의 명의 또는 휴대전화번호를 도용한 경우</li>
             <li>• 허위 정보를 기재하거나 본인 인증이 불가한 경우</li>
             <li>• 기존 회원 자격이 상실된 적이 있는 경우 (단, 회사의 재가입 승인을 받은 경우 제외)</li>
@@ -93,7 +100,7 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제5조 (실명 인증 및 계정 관리)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제5조 (실명 인증 및 계정 관리)</h2>
         <div class="space-y-2">
           <p>1. 모든 회원은 KG이니시스 휴대전화 본인인증을 통해 실명으로 가입해야 합니다.</p>
           <p>2. 회원은 자신의 계정을 타인에게 양도·대여할 수 없으며, 계정 관리 책임은 회원 본인에게 있습니다.</p>
@@ -103,9 +110,9 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제6조 (서비스의 내용)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제6조 (서비스의 내용)</h2>
         <p>회사가 제공하는 서비스는 다음과 같습니다.</p>
-        <ul class="space-y-1 text-gray-400 ml-6 mt-2">
+        <ul class="space-y-1 text-slate-600 ml-6 mt-2">
           <li>• 전문가·인플루언서의 인사이트 등록 기능</li>
           <li>• 회원의 인사이트 검색·구매 및 매칭 기능</li>
           <li>• KG이니시스 PG사를 통한 안전한 결제 기능 (신용카드, 카카오페이, 네이버페이 등)</li>
@@ -121,40 +128,40 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제6조의2 (통신판매중개 및 지급대행)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제6조의2 (통신판매중개 및 지급대행)</h2>
         <div class="space-y-2">
-          <p>1. 회사는 전자상거래법 제2조 제4호에 따른 <strong class="text-white">통신판매중개자</strong>로서, 같은 법 제20조에 따라 회원 간 인사이트 거래를 중개하는 플랫폼을 운영합니다.</p>
-          <p>2. 회사는 전자상거래법 제20조의2에 따라 플랫폼을 통해 이루어지는 거래에 관하여 소비자에게 발생한 재산상 손해에 대해 판매자와 <strong class="text-white">연대하여 배상할 책임</strong>을 지며, 거래 과정에서 발생하는 분쟁에 대해 적극적으로 해결합니다.</p>
-          <p>3. 회사는 전자상거래법 제20조의3에 따라 대금을 수령하는 통신판매중개업자로서, KG이니시스 전자결제대행(PG) 서비스를 통한 <strong class="text-white">지급대행</strong> 방식으로 결제를 처리하며, 같은 법 제8조에 따른 전자적 대금지급의 신뢰 확보를 위해 거래 대금은 미팅 완료 확인 시까지 에스크로 방식으로 보관됩니다. 거래 확정 후 플랫폼 수수료를 공제한 금액이 판매자에게 정산·지급됩니다.</p>
+          <p>1. 회사는 전자상거래법 제2조 제4호에 따른 <strong class="text-slate-900">통신판매중개자</strong>로서, 같은 법 제20조에 따라 회원 간 인사이트 거래를 중개하는 플랫폼을 운영합니다.</p>
+          <p>2. 회사는 전자상거래법 제20조의2에 따라 플랫폼을 통해 이루어지는 거래에 관하여 소비자에게 발생한 재산상 손해에 대해 판매자와 <strong class="text-slate-900">연대하여 배상할 책임</strong>을 지며, 거래 과정에서 발생하는 분쟁에 대해 적극적으로 해결합니다.</p>
+          <p>3. 회사는 전자상거래법 제20조의3에 따라 대금을 수령하는 통신판매중개업자로서, KG이니시스 전자결제대행(PG) 서비스를 통한 <strong class="text-slate-900">지급대행</strong> 방식으로 결제를 처리하며, 같은 법 제8조에 따른 전자적 대금지급의 신뢰 확보를 위해 거래 대금은 미팅 완료 확인 시까지 에스크로 방식으로 보관됩니다. 거래 확정 후 플랫폼 수수료를 공제한 금액이 판매자에게 정산·지급됩니다.</p>
           <p>4. 회사는 인사이트의 내용 및 거래 품질을 관리·감독하며, 부적절한 인사이트가 발견될 경우 즉시 비공개·삭제 등 필요한 조치를 취합니다. 다만, 인사이트를 통해 제공되는 경험·지식은 판매자의 주관적 견해 및 개인적 경험에 기반한 것으로, 회사는 그 결과, 효과 또는 성과를 보증하지 않습니다.</p>
           <p>5. 회사는 전자상거래법 제20조 및 관련 법령에 따라 안전한 거래 환경 조성을 위해 다음의 조치를 취합니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 본인인증을 통한 실명 거래 환경 제공</li>
             <li>• 에스크로 방식의 결제금 보호</li>
             <li>• 인사이트 내용 모니터링 및 품질 관리</li>
             <li>• 금지 활동 모니터링 및 신고 처리</li>
             <li>• 분쟁 발생 시 적극적인 해결 및 소비자 보호</li>
           </ul>
-          <div class="bg-dark-800 rounded-xl p-4 border border-white/5 text-xs text-gray-400 leading-relaxed mt-2">
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 text-xs text-slate-600 leading-relaxed mt-2">
             <p>※ 주식회사 하이드미플리즈는 전자상거래법 제20조의2 및 제20조의3에 따른 통신판매중개업자로서 서비스의 안전한 운영과 소비자 보호에 대한 책임을 지며, 거래 과정에서 발생하는 문제에 대해 관련 법령에 따라 책임지고 해결합니다.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제6조의3 (금지 활동)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제6조의3 (금지 활동)</h2>
         <div class="space-y-2">
           <p>1. 회원은 다음 각 호에 해당하는 행위를 인사이트로 등록하거나 제공할 수 없습니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 법률 상담, 법률 문서 작성, 소송 대리 등 「변호사법」상 법률사무에 해당하는 행위</li>
             <li>• 세무 신고 대행, 세무 조정, 세무 상담 등 「세무사법」상 세무대리에 해당하는 행위</li>
             <li>• 부동산 매매·임대차의 중개 등 「공인중개사법」상 중개업무에 해당하는 행위</li>
             <li>• 질병의 진단, 치료, 처방 등 「의료법」상 의료행위에 해당하는 행위</li>
-            <li>• <strong class="text-white">주식, 코인(암호화폐), 선물거래, 부동산 투자, 펀드 등 투자 관련 일체의 활동 (개인적 경험 공유 포함)</strong></li>
+            <li>• <strong class="text-slate-900">주식, 코인(암호화폐), 선물거래, 부동산 투자, 펀드 등 투자 관련 일체의 활동 (개인적 경험 공유 포함)</strong></li>
             <li>• 기타 관련 법령에 의해 특정 자격을 갖춘 자만 수행할 수 있는 업무</li>
           </ul>
           <p>2. 제1항에도 불구하고, 투자 관련 활동을 제외한 나머지 분야에 관한 개인적 경험담의 공유, 일반적 정보의 제공, 동행·체험 등 전문직 업무의 수행에 해당하지 않는 활동은 허용됩니다.</p>
-          <div class="bg-dark-800 rounded-xl p-4 border border-white/5 space-y-1 text-xs text-gray-400">
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 space-y-1 text-xs text-slate-600">
             <p>예시) 허용: "건강 관리 습관 공유", "세금 관련 개인 경험담", "부동산 임장 동행"</p>
             <p>예시) 금지: "주식 투자 경험 공유", "코인 투자 노하우", "부동산 투자 경험 공유", "매물 중개 및 계약 대행", "질병 진단 또는 처방", "세무 신고 대행"</p>
           </div>
@@ -163,35 +170,35 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제6조의4 (판매자의 의무 및 회사의 관리 책임)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제6조의4 (판매자의 의무 및 회사의 관리 책임)</h2>
         <div class="space-y-2">
           <p>1. 판매자는 자신이 등록하는 인사이트가 관련 법령을 위반하지 않음을 확인할 의무가 있습니다.</p>
-          <p>2. 판매자가 등록한 인사이트로 인해 구매자 또는 제3자에게 손해가 발생한 경우, 회사는 전자상거래법 제20조의2에 따라 판매자와 <strong class="text-white">연대하여 해당 문제를 해결할 책임</strong>을 지며, 귀책사유가 있는 판매자에 대해 구상권을 행사할 수 있습니다. 판매자에 대한 미정산 금액이 있는 경우 해당 금액에서 상계(차감)할 수 있습니다.</p>
+          <p>2. 판매자가 등록한 인사이트로 인해 구매자 또는 제3자에게 손해가 발생한 경우, 회사는 전자상거래법 제20조의2에 따라 판매자와 <strong class="text-slate-900">연대하여 해당 문제를 해결할 책임</strong>을 지며, 귀책사유가 있는 판매자에 대해 구상권을 행사할 수 있습니다. 판매자에 대한 미정산 금액이 있는 경우 해당 금액에서 상계(차감)할 수 있습니다.</p>
           <p>3. 판매자는 인사이트에 허위 또는 과장된 정보를 기재하여서는 아니 됩니다.</p>
           <p>4. 회사는 제6조의3의 금지 활동 위반이 확인된 경우, 사전 통보 없이 해당 인사이트의 비공개·삭제, 판매자의 계정 정지·영구 제한 등의 조치를 취하며, 피해를 입은 구매자에 대해 환불 등 필요한 보호 조치를 시행합니다.</p>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제6조의5 (신고 및 조치)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제6조의5 (신고 및 조치)</h2>
         <div class="space-y-2">
-          <p>1. 회원은 제6조의3의 금지 활동에 해당하거나 기타 부적절한 인사이트를 발견한 경우, 앱 내 신고 기능 또는 고객센터(<a href="mailto:ixplorer@hidemeplease.xyz" class="text-lime-400 hover:underline">ixplorer@hidemeplease.xyz</a>)를 통해 신고할 수 있습니다.</p>
+          <p>1. 회원은 제6조의3의 금지 활동에 해당하거나 기타 부적절한 인사이트를 발견한 경우, 앱 내 신고 기능 또는 고객센터(<a href="mailto:ixplorer@hidemeplease.xyz" class="text-primary-600 hover:underline">ixplorer@hidemeplease.xyz</a>)를 통해 신고할 수 있습니다.</p>
           <p>2. 회사는 신고를 접수한 후 합리적인 기간 내에 사실관계를 확인하고, 필요한 경우 인사이트 비공개·삭제, 판매자 제재 등의 조치를 취합니다.</p>
           <p>3. 회사는 신고 처리 결과를 신고자에게 통지합니다.</p>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제7조 (결제)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제7조 (결제)</h2>
         <div class="space-y-2">
           <p>1. 회원은 회사가 정한 결제수단을 통해 인사이트를 구매할 수 있습니다. 결제는 포트원(PortOne)을 통해 KG이니시스 전자결제대행(PG) 서비스의 지급대행 방식으로 처리되며, 신용카드, 카카오페이, 네이버페이 등의 결제수단을 지원합니다.</p>
           <p>2. 인사이트의 가격은 판매자가 설정하며, 최소 금액은 50,000원입니다.</p>
           <p>3. 결제는 구매 시 즉시 처리되며, 결제 금액은 미팅 완료 확인 시까지 에스크로 방식으로 보관됩니다.</p>
           <p>4. 결제 완료 시 구매자에게 결제 내역(상품명, 결제금액, 결제일시, 결제수단)이 앱 내 알림 및 푸시 알림으로 고지됩니다.</p>
           <p>5. 미성년자의 결제는 법정대리인의 동의 하에 이루어져야 하며, 동의 없이 이루어진 결제에 대해 법정대리인은 이를 취소할 수 있습니다(민법 제5조).</p>
-          <p>6. <strong class="text-white">모든 인사이트 거래(예약)는 결제일로부터 1개월 이내에 미팅이 진행되어야 합니다.</strong> 판매자는 인사이트 등록일로부터 1개월 이내의 미팅 일정만 등록할 수 있습니다.</p>
+          <p>6. <strong class="text-slate-900">모든 인사이트 거래(예약)는 결제일로부터 1개월 이내에 미팅이 진행되어야 합니다.</strong> 판매자는 인사이트 등록일로부터 1개월 이내의 미팅 일정만 등록할 수 있습니다.</p>
           <p>7. 결제일로부터 1개월 이내에 미팅이 진행되지 않은 경우, 회사는 양측의 귀책사유를 확인한 후 다음과 같이 처리합니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 판매자의 귀책사유(일정 미확정, 연락 두절 등)인 경우: 구매자에게 전액 환불</li>
             <li>• 구매자의 귀책사유(일정 거부, 연락 두절 등)인 경우: 판매자에게 정산</li>
             <li>• 양측 귀책사유가 불분명한 경우: 회사가 조정하여 처리</li>
@@ -200,7 +207,7 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제8조 (정산)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제8조 (정산)</h2>
         <div class="space-y-2">
           <p>1. 인사이트 구매 시, 결제 금액이 즉시 처리되며 미팅 완료가 확정될 때까지 보관됩니다.</p>
           <p>2. 회사는 거래 금액의 10%를 플랫폼 수수료로 공제합니다.</p>
@@ -211,24 +218,24 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제9조 (환불 및 청약철회)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제9조 (환불 및 청약철회)</h2>
         <div class="space-y-2">
-          <p class="font-medium text-white">▸ 청약철회 (전자상거래법 제17조)</p>
+          <p class="font-medium text-slate-900">▸ 청약철회 (전자상거래법 제17조)</p>
           <p>1. 구매자는 전자상거래법 제17조에 따라 결제일로부터 7일 이내에, 미팅이 시작되기 전까지 청약을 철회할 수 있으며, 이 경우 위약금 없이 결제 금액 전액이 환불됩니다.</p>
           <p>2. 다만, 미팅이 이미 시작된 경우(용역의 제공이 개시된 경우) 전자상거래법 제17조 제2항 제5호에 따라 청약철회가 제한됩니다.</p>
 
-          <p class="font-medium text-white mt-4">▸ 약관상 취소 및 환불</p>
+          <p class="font-medium text-slate-900 mt-4">▸ 약관상 취소 및 환불</p>
           <p>3. 청약철회 기간(7일) 경과 후라도, 미팅 시작 24시간 전까지 구매자가 취소를 요청하면, 취소 위약금 3,000원을 차감한 금액이 환불됩니다. 위약금은 PG사 결제 수수료를 제외한 금액이 판매자에게 기회비용 손실 보전금으로 지급됩니다.</p>
           <p>4. 미팅 시작 24시간 이내에는 원칙적으로 취소 및 환불이 불가합니다.</p>
           <p>5. 예외적으로 다음의 경우(판매자 귀책 사유) 시점에 관계없이 위약금 없이 전액 환불이 가능합니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 판매자의 노쇼(No-Show) 발생 시</li>
             <li>• 시스템 오류·중복 결제 시</li>
             <li>• 판매자의 일방적 취소 시</li>
           </ul>
           <p>6. 구매자 귀책 사유(노쇼·단순 변심)로 미팅 24시간 이내 취소 요청 시 환불이 불가하며, 판매자에게 전액 정산됩니다.</p>
 
-          <p class="font-medium text-white mt-4">▸ 환불 방법 및 기한</p>
+          <p class="font-medium text-slate-900 mt-4">▸ 환불 방법 및 기한</p>
           <p>7. 환불은 원결제수단으로 처리됩니다. (신용카드 결제 → 카드 승인취소, 간편결제 → 해당 결제수단으로 환불)</p>
           <p>8. 청약철회에 따른 환불은 전자상거래법 제18조에 따라 철회 의사 수령 후 3영업일 이내에 처리됩니다.</p>
           <p>9. 약관상 취소에 따른 환불은 요청일로부터 5영업일 이내에 처리됩니다.</p>
@@ -237,7 +244,7 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제9조의2 (자동 거래 확정)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제9조의2 (자동 거래 확정)</h2>
         <div class="space-y-2">
           <p>1. 미팅 종료 시간으로부터 24시간이 경과하도록 양측 모두 미팅 완료 확인을 하지 않은 경우, 미팅이 정상적으로 완료된 것으로 간주하여 자동으로 거래가 확정됩니다.</p>
           <p>2. 자동 거래 확정 시 정산이 진행되며, 확정 이후에는 환불이 불가합니다.</p>
@@ -246,10 +253,10 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제10조 (서비스 이용 제한 및 계약 해지)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제10조 (서비스 이용 제한 및 계약 해지)</h2>
         <div class="space-y-2">
           <p>1. 회원이 다음 사유에 해당하는 경우 회사는 사전 통보 없이 서비스 이용을 제한하거나 회원 자격을 박탈할 수 있습니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 법령 또는 약관 위반</li>
             <li>• 타인의 권리 침해</li>
             <li>• 회사의 서비스 운영 방해</li>
@@ -259,10 +266,10 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제11조 (서비스 중단)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제11조 (서비스 중단)</h2>
         <div class="space-y-2">
           <p>1. 회사는 다음 사유가 발생한 경우 서비스 제공을 일시적으로 중단할 수 있습니다.</p>
-          <ul class="ml-6 space-y-1 text-gray-400">
+          <ul class="ml-6 space-y-1 text-slate-600">
             <li>• 시스템 정기 점검, 서버 증설 및 교체 등 기술적 필요가 있는 경우</li>
             <li>• 천재지변, 전력 장애, 통신 장애 등 불가항력적 사유가 발생한 경우</li>
             <li>• 기타 회사의 합리적 판단에 따라 서비스 중단이 필요한 경우</li>
@@ -273,7 +280,7 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제12조 (회사의 책임)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제12조 (회사의 책임)</h2>
         <div class="space-y-2">
           <p>1. 회사는 전자상거래법 제20조의2 및 제20조의3에 따라 플랫폼을 통해 이루어지는 인사이트 거래에 대한 책임을 부담하며, 거래 과정에서 발생하는 분쟁 및 소비자 피해에 대해 적극적으로 해결합니다.</p>
           <p>2. 회사는 인사이트의 내용 및 품질을 관리·감독하며, 금지 활동(제6조의3) 위반이 확인될 경우 즉시 조치를 취하고, 이로 인한 구매자의 피해에 대해 환불 등 필요한 보호 조치를 시행합니다.</p>
@@ -285,19 +292,19 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제13조 (소비자 피해보상 및 분쟁해결)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제13조 (소비자 피해보상 및 분쟁해결)</h2>
         <div class="space-y-2">
           <p>1. 회사는 전자상거래법 및 「콘텐츠산업진흥법」 등 관련 법령에 따라 소비자 피해보상을 처리합니다.</p>
           <p>2. 회원은 서비스 이용과 관련한 불만 또는 피해 구제를 아래 연락처를 통해 신청할 수 있으며, 회사는 접수 후 신속하게 처리합니다.</p>
-          <div class="bg-dark-800 rounded-xl p-4 border border-white/5 mt-2">
-            <p class="text-gray-400">이메일: <a href="mailto:ixplorer@hidemeplease.xyz" class="text-lime-400 hover:underline">ixplorer@hidemeplease.xyz</a></p>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 mt-2">
+            <p class="text-slate-600">이메일: <a href="mailto:ixplorer@hidemeplease.xyz" class="text-primary-600 hover:underline">ixplorer@hidemeplease.xyz</a></p>
           </div>
           <p>3. 회원과 회사 간 분쟁이 원만히 해결되지 않을 경우, 한국소비자원(1372), 전자거래분쟁조정위원회 등 외부 분쟁조정기관을 통해 해결할 수 있습니다.</p>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제14조 (준거법 및 관할법원)</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제14조 (준거법 및 관할법원)</h2>
         <div class="space-y-2">
           <p>1. 본 약관은 대한민국 법률(「전자상거래 등에서의 소비자보호에 관한 법률」, 「약관의 규제에 관한 법률」 등)에 따라 해석·적용됩니다.</p>
           <p>2. 서비스와 관련하여 회사와 회원 간 분쟁이 발생할 경우, 회사 본점 소재지를 관할하는 법원을 제1심 전속 관할 법원으로 합니다.</p>
@@ -305,31 +312,31 @@
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">제15조 (회사 정보)</h2>
-        <div class="bg-dark-800 rounded-xl p-5 border border-white/5 space-y-2 text-gray-400">
-          <p><strong class="text-white">상호:</strong> 주식회사 하이드미플리즈</p>
-          <p><strong class="text-white">대표자:</strong> 유현</p>
-          <p><strong class="text-white">사업자등록번호:</strong> 777-86-02664</p>
-          <p><strong class="text-white">통신판매업 신고번호:</strong> 제2023-서울중구-0094호</p>
-          <p><strong class="text-white">소재지:</strong> 서울특별시 중구 을지로11길 33, 2층</p>
-          <p><strong class="text-white">이메일:</strong> <a href="mailto:ixplorer@hidemeplease.xyz" class="text-lime-400 hover:underline">ixplorer@hidemeplease.xyz</a></p>
-          <p><strong class="text-white">홈페이지:</strong> <a href="https://buyyou.app" class="text-lime-400 hover:underline">https://buyyou.app</a></p>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">제15조 (회사 정보)</h2>
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200/80 space-y-2 text-slate-600">
+          <p><strong class="text-slate-900">상호:</strong> 주식회사 하이드미플리즈</p>
+          <p><strong class="text-slate-900">대표자:</strong> 유현</p>
+          <p><strong class="text-slate-900">사업자등록번호:</strong> 777-86-02664</p>
+          <p><strong class="text-slate-900">통신판매업 신고번호:</strong> 제2023-서울중구-0094호</p>
+          <p><strong class="text-slate-900">소재지:</strong> 서울특별시 중구 을지로11길 33, 2층</p>
+          <p><strong class="text-slate-900">이메일:</strong> <a href="mailto:ixplorer@hidemeplease.xyz" class="text-primary-600 hover:underline">ixplorer@hidemeplease.xyz</a></p>
+          <p><strong class="text-slate-900">홈페이지:</strong> <a href="https://buyyou.app" class="text-primary-600 hover:underline">https://buyyou.app</a></p>
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-white mb-3">부칙</h2>
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">부칙</h2>
         <div class="space-y-2">
           <p>본 약관은 2026년 3월 16일부터 시행됩니다.</p>
           <p>회사는 관련 법령 변경 또는 서비스 운영상 필요에 따라 본 약관을 개정할 수 있으며, 변경사항은 시행 7일 전부터 공지합니다.</p>
-          <div class="mt-4 p-4 bg-dark-800 rounded-xl border border-white/5">
-            <p class="font-medium text-white text-xs mb-2">개정 이력</p>
-            <p class="text-xs text-gray-500">• 2025.10.01 — 최초 시행</p>
-            <p class="text-xs text-gray-500">• 2026.02.24 — 플랫폼 수수료율 변경(12%→10%), 취소 위약금 제도 신설(3,000원), 자동 거래 확정 조항 추가, PG 결제 수수료 부담 주체 명확화</p>
-            <p class="text-xs text-gray-500">• 2026.03.06 — 전자상거래법 준수 보강(청약철회 조항 신설, 원결제수단 환불 원칙, 환불기한 법률 준수), 미성년자 법정대리인 동의·취소권 명시, 서비스 중단 조항 신설, 소비자 피해보상 및 분쟁해결 조항 신설, 회사 정보 조항 신설, 판매자·구매자·에스크로 정의 추가, 자동 거래 확정 기간 변경(7일→24시간), 서비스 내용 구체화, 결제 수단 구체화(KG이니시스), 본인인증 통합(KG이니시스)</p>
-            <p class="text-xs text-gray-500">• 2026.03.09 — 경력 인증 시스템(회사 이메일·사업자등록번호 인증) 및 신뢰 점수 오버차지 기능 추가 반영</p>
-            <p class="text-xs text-gray-500">• 2026.03.16 — 플랫폼 역할 및 한계 명확화(제6조의2 신설), 금지 활동 조항 신설(제6조의3), 판매자 의무 강화(제6조의4 신설), 신고 및 조치 체계 신설(제6조의5), 회사 면책 조항 구체화(제12조 개정), 인사이트 정의 보강(제2조)</p>
-            <p class="text-xs text-gray-500">• 2026.03.19 — 통신판매중개자 지위 및 지급대행 서비스 명시(제2조, 제6조의2, 제7조, 제8조 보강), 사업자 정보 앱 내 표시 추가(설정 화면), 회사 책임 강화(제6조의2, 제6조의4, 제12조 전면 개정), 투자 관련 인사이트 전면 금지(제6조의3), 1개월 이내 거래 진행 의무 신설(제7조)</p>
+          <div class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+            <p class="font-medium text-slate-900 text-xs mb-2">개정 이력</p>
+            <p class="text-xs text-slate-500">• 2025.10.01 — 최초 시행</p>
+            <p class="text-xs text-slate-500">• 2026.02.24 — 플랫폼 수수료율 변경(12%→10%), 취소 위약금 제도 신설(3,000원), 자동 거래 확정 조항 추가, PG 결제 수수료 부담 주체 명확화</p>
+            <p class="text-xs text-slate-500">• 2026.03.06 — 전자상거래법 준수 보강(청약철회 조항 신설, 원결제수단 환불 원칙, 환불기한 법률 준수), 미성년자 법정대리인 동의·취소권 명시, 서비스 중단 조항 신설, 소비자 피해보상 및 분쟁해결 조항 신설, 회사 정보 조항 신설, 판매자·구매자·에스크로 정의 추가, 자동 거래 확정 기간 변경(7일→24시간), 서비스 내용 구체화, 결제 수단 구체화(KG이니시스), 본인인증 통합(KG이니시스)</p>
+            <p class="text-xs text-slate-500">• 2026.03.09 — 경력 인증 시스템(회사 이메일·사업자등록번호 인증) 및 신뢰 점수 오버차지 기능 추가 반영</p>
+            <p class="text-xs text-slate-500">• 2026.03.16 — 플랫폼 역할 및 한계 명확화(제6조의2 신설), 금지 활동 조항 신설(제6조의3), 판매자 의무 강화(제6조의4 신설), 신고 및 조치 체계 신설(제6조의5), 회사 면책 조항 구체화(제12조 개정), 인사이트 정의 보강(제2조)</p>
+            <p class="text-xs text-slate-500">• 2026.03.19 — 통신판매중개자 지위 및 지급대행 서비스 명시(제2조, 제6조의2, 제7조, 제8조 보강), 사업자 정보 앱 내 표시 추가(설정 화면), 회사 책임 강화(제6조의2, 제6조의4, 제12조 전면 개정), 투자 관련 인사이트 전면 금지(제6조의3), 1개월 이내 거래 진행 의무 신설(제7조)</p>
           </div>
         </div>
       </section>
@@ -338,11 +345,11 @@
   </main>
 
   <!-- Footer -->
-  <footer class="py-8 border-t border-white/5">
+  <footer class="py-8 border-t border-slate-200 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-xs text-gray-600">&copy; 2026 주식회사 하이드미플리즈 (HideMePlease Inc.) All rights reserved.</p>
-      <p class="text-xs text-gray-600 mt-1">사업자등록번호: 777-86-02664 | 통신판매업: 제2023-서울중구-0094호 | 대표: 유현</p>
-      <p class="text-xs text-gray-600 mt-1">서울특별시 중구 을지로11길 33, 2층 | 연락처: 010-5492-3665 | ixplorer@hidemeplease.xyz</p>
+      <p class="text-xs text-slate-400">&copy; 2026 주식회사 하이드미플리즈 (HideMePlease Inc.) All rights reserved.</p>
+      <p class="text-xs text-slate-400 mt-1">사업자등록번호: 777-86-02664 | 통신판매업: 제2023-서울중구-0094호 | 대표: 유현</p>
+      <p class="text-xs text-slate-400 mt-1">서울특별시 중구 을지로11길 33, 2층 | 연락처: 010-5492-3665 | ixplorer@hidemeplease.xyz</p>
     </div>
   </footer>
 

@@ -8,6 +8,7 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="description" content="전문가의 노하우와 경험을 1:1 미팅으로 사고파는 플랫폼. 안전한 결제와 에스크로 정산 시스템." />
   <meta name="author" content="주식회사 하이드미플리즈 (HideMePlease Inc.)" />
+  <meta name="theme-color" content="#1047C2" />
   <meta property="og:title" content="BuyYou - 당신의 경험을 삽니다" />
   <meta property="og:description" content="전문가의 노하우와 경험을 1:1 미팅으로 사고파는 플랫폼" />
   <meta property="og:type" content="website" />
@@ -18,23 +19,32 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
     * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body { background: #ffffff; color: #0f172a; }
+
     .gradient-text {
-      background: linear-gradient(135deg, #d4e156 0%, #a8c030 100%);
+      background: linear-gradient(135deg, #1047C2 0%, #2c63d3 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .glass { background: rgba(34, 34, 42, 0.7); backdrop-filter: blur(16px); }
+    .glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+    }
 
-    /* iPhone Frame */
+    /* iPhone Frame (라이트 테마 - 앱 데이모드와 동일한 톤) */
     .iphone-frame {
       width: 320px;
       height: 640px;
       border-radius: 44px;
-      border: 6px solid #2a2a32;
-      background: #1a1a1f;
+      border: 6px solid #d8dee9;
+      background: #ffffff;
       position: relative;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) inset;
+      box-shadow:
+        0 30px 80px rgba(16, 71, 194, 0.18),
+        0 8px 24px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(15, 23, 42, 0.04) inset;
       overflow: hidden;
     }
     .iphone-notch {
@@ -42,7 +52,7 @@
       top: 0; left: 50%;
       transform: translateX(-50%);
       width: 130px; height: 30px;
-      background: #1a1a1f;
+      background: #ffffff;
       border-radius: 0 0 18px 18px;
       z-index: 30;
     }
@@ -52,14 +62,16 @@
       top: 8px; left: 50%;
       transform: translateX(-50%);
       width: 60px; height: 5px;
-      background: #333;
+      background: #cbd5e1;
       border-radius: 10px;
     }
     .iphone-screen {
       width: 100%; height: 100%;
       overflow: hidden;
       border-radius: 38px;
+      background: #ffffff;
     }
+    .phone-bg { background: #ffffff; }
 
     /* Carousel inside phone */
     .phone-carousel-track {
@@ -80,15 +92,19 @@
     .insight-card-wrapper.active { transform: scale(1); opacity: 1; }
     .insight-card-wrapper.inactive { transform: scale(0.92); opacity: 0.6; }
 
-    /* Insight card colors matching the app */
-    .card-lime { background: hsl(65, 35%, 85%); }
-    .card-coral { background: hsl(350, 35%, 85%); }
-    .card-sky { background: hsl(200, 35%, 85%); }
-    .card-lavender { background: hsl(280, 35%, 85%); }
-    .card-peach { background: hsl(30, 35%, 85%); }
+    /* Insight card colors matching the app (소프트 파스텔 톤 — 라이트 테마와 잘 어울림) */
+    .card-lime { background: hsl(210, 35%, 88%); }     /* 앱 데이모드 기본 인사이트 카드 컬러 */
+    .card-coral { background: hsl(350, 35%, 90%); }
+    .card-sky { background: hsl(200, 40%, 90%); }
+    .card-lavender { background: hsl(260, 35%, 92%); }
+    .card-peach { background: hsl(30, 50%, 92%); }
 
-    .feature-card:hover { transform: translateY(-4px); }
-    .feature-card { transition: transform 0.3s ease; }
+    .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(16, 71, 194, 0.25);
+      border-color: rgba(16, 71, 194, 0.25);
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -101,10 +117,10 @@
     .swipe-hint-icon { animation: swipe-hint 1.5s ease-in-out infinite; }
 
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 225, 86, 0.3); }
-      50% { box-shadow: 0 0 20px 4px rgba(212, 225, 86, 0.15); }
+      0%, 100% { box-shadow: 0 30px 80px rgba(16, 71, 194, 0.18), 0 0 0 0 rgba(16, 71, 194, 0.18); }
+      50% { box-shadow: 0 30px 80px rgba(16, 71, 194, 0.22), 0 0 30px 6px rgba(16, 71, 194, 0.10); }
     }
-    .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+    .pulse-glow { animation: pulse-glow 3.5s ease-in-out infinite; }
 
     /* Bottom tab bar inside phone */
     .phone-tab-bar {
@@ -112,8 +128,8 @@
       align-items: center;
       justify-content: space-around;
       padding: 6px 0 10px;
-      background: #1a1a1f;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
     }
     .phone-tab-bar .tab-item {
       display: flex;
@@ -121,66 +137,111 @@
       align-items: center;
       gap: 2px;
       font-size: 9px;
-      color: #666;
+      color: #94a3b8;
     }
-    .phone-tab-bar .tab-item.active { color: #d4e156; }
+    .phone-tab-bar .tab-item.active { color: #1047C2; }
     .phone-tab-bar .tab-plus {
       width: 36px; height: 36px;
       border-radius: 50%;
-      background: #d4e156;
+      background: #1047C2;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #1a1a1f;
+      color: #ffffff;
       font-size: 20px;
       font-weight: bold;
       margin-top: -8px;
+      box-shadow: 0 6px 14px rgba(16, 71, 194, 0.35);
     }
+
+    /* Light surface backgrounds */
+    .surface-soft { background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%); }
+    .surface-tint { background: #f8faff; }
+
+    /* Store buttons */
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 14px;
+      background: #0f172a;
+      color: #ffffff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.4);
+      min-width: 180px;
+    }
+    .store-btn:hover { transform: translateY(-2px); background: #000000; box-shadow: 0 14px 28px -12px rgba(15, 23, 42, 0.5); }
+    .store-btn .store-label { display: flex; flex-direction: column; line-height: 1; text-align: left; }
+    .store-btn .store-label .small { font-size: 10px; opacity: 0.75; margin-bottom: 3px; letter-spacing: 0.02em; }
+    .store-btn .store-label .big { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+    .store-btn-compact {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .store-btn-compact:hover { background: #1047C2; transform: translateY(-1px); }
   </style>
 </head>
-<body class="bg-dark-900 text-white antialiased">
+<body class="antialiased">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#" class="text-2xl font-light tracking-wider">Buy<span class="gradient-text font-semibold">You</span></a>
-        <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
-          <a href="#features" class="hover:text-white transition">주요 기능</a>
-          <a href="#how-it-works" class="hover:text-white transition">이용 방법</a>
-          <a href="#pricing" class="hover:text-white transition">요금 안내</a>
-          <a href="#safety" class="hover:text-white transition">안전 거래</a>
-          <a href="#contact" class="hover:text-white transition">문의</a>
+        <a href="#" class="text-2xl font-light tracking-wider text-slate-900">Buy<span class="gradient-text font-semibold">You</span></a>
+        <div class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+          <a href="#features" class="hover:text-primary-600 transition">주요 기능</a>
+          <a href="#how-it-works" class="hover:text-primary-600 transition">이용 방법</a>
+          <a href="#pricing" class="hover:text-primary-600 transition">요금 안내</a>
+          <a href="#safety" class="hover:text-primary-600 transition">안전 거래</a>
+          <a href="#download" class="hover:text-primary-600 transition">앱 다운로드</a>
+          <a href="#contact" class="hover:text-primary-600 transition">문의</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-gray-400 p-2">
+        <div class="hidden md:flex items-center gap-2">
+          <a href="#download" class="store-btn-compact" aria-label="앱 다운로드">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z"/></svg>
+            앱 다운로드
+          </a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-dark-900/95 backdrop-blur">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/70 bg-white/95 backdrop-blur">
       <div class="px-4 py-3 space-y-2 text-sm">
-        <a href="#features" class="block py-2 text-gray-400 hover:text-white">주요 기능</a>
-        <a href="#how-it-works" class="block py-2 text-gray-400 hover:text-white">이용 방법</a>
-        <a href="#pricing" class="block py-2 text-gray-400 hover:text-white">요금 안내</a>
-        <a href="#safety" class="block py-2 text-gray-400 hover:text-white">안전 거래</a>
-        <a href="#contact" class="block py-2 text-gray-400 hover:text-white">문의</a>
+        <a href="#features" class="block py-2 text-slate-600 hover:text-primary-600">주요 기능</a>
+        <a href="#how-it-works" class="block py-2 text-slate-600 hover:text-primary-600">이용 방법</a>
+        <a href="#pricing" class="block py-2 text-slate-600 hover:text-primary-600">요금 안내</a>
+        <a href="#safety" class="block py-2 text-slate-600 hover:text-primary-600">안전 거래</a>
+        <a href="#download" class="block py-2 text-slate-600 hover:text-primary-600">앱 다운로드</a>
+        <a href="#contact" class="block py-2 text-slate-600 hover:text-primary-600">문의</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO: Interactive iPhone with Swipeable Insights -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12">
+  <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12 surface-soft">
     <!-- Background glow -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-lime-400/8 rounded-full blur-[100px]"></div>
+      <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary-200/40 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary-100/60 rounded-full blur-[100px]"></div>
     </div>
 
-    <!-- Swipe hint text above phone -->
+    <!-- Headline above phone -->
     <div class="relative z-10 text-center mb-6">
-      <h1 class="text-4xl sm:text-5xl font-light mb-3">
+      <h1 class="text-4xl sm:text-5xl font-light mb-3 text-slate-900">
         당신의 경험을 <span class="gradient-text font-bold">삽니다.</span>
       </h1>
-      <p class="text-gray-400 text-sm sm:text-base max-w-md mx-auto px-4">전문가의 경험을 1:1 미팅으로 거래하는 플랫폼</p>
+      <p class="text-slate-600 text-sm sm:text-base max-w-md mx-auto px-4">1:1 경험 거래 플랫폼</p>
     </div>
 
     <!-- iPhone -->
@@ -190,42 +251,42 @@
         <div class="iphone-screen flex flex-col">
 
           <!-- App Header -->
-          <div class="px-4 pt-10 pb-2 flex items-center justify-between shrink-0" style="background: #1a1a1f;">
-            <span class="text-base font-bold text-white">BuyYou</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <div class="px-4 pt-10 pb-2 flex items-center justify-between shrink-0 phone-bg">
+            <span class="text-base font-bold text-slate-900">BuyYou</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           </div>
 
           <!-- Search Bar -->
-          <div class="px-4 pb-2 shrink-0" style="background: #1a1a1f;">
-            <div class="flex items-center gap-1.5 bg-white/5 rounded-xl px-3 py-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-              <span class="text-[10px] text-gray-500">인사이트, 판매자, 장소 검색...</span>
+          <div class="px-4 pb-2 shrink-0 phone-bg">
+            <div class="flex items-center gap-1.5 bg-slate-100 rounded-xl px-3 py-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <span class="text-[10px] text-slate-400">인사이트, 판매자, 장소 검색...</span>
             </div>
           </div>
 
           <!-- Category Pills -->
-          <div class="px-4 pb-2 flex gap-1.5 overflow-hidden shrink-0" style="background: #1a1a1f;">
-            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-lime-400 text-dark-900 whitespace-nowrap">전체</span>
-            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-white/5 text-gray-400 whitespace-nowrap">비즈니스</span>
-            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-white/5 text-gray-400 whitespace-nowrap">개발·IT</span>
-            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-white/5 text-gray-400 whitespace-nowrap">마케팅</span>
-            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-white/5 text-gray-400 whitespace-nowrap">생활</span>
+          <div class="px-4 pb-2 flex gap-1.5 overflow-hidden shrink-0 phone-bg">
+            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-primary-600 text-white whitespace-nowrap">전체</span>
+            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-slate-100 text-slate-500 whitespace-nowrap">비즈니스</span>
+            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-slate-100 text-slate-500 whitespace-nowrap">개발·IT</span>
+            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-slate-100 text-slate-500 whitespace-nowrap">마케팅</span>
+            <span class="px-3 py-1 rounded-full text-[9px] font-medium bg-slate-100 text-slate-500 whitespace-nowrap">생활</span>
           </div>
 
           <!-- Results count -->
-          <div class="px-4 pb-1.5 shrink-0" style="background: #1a1a1f;">
-            <span class="text-[9px] text-gray-500" id="insight-count">13개의 인사이트</span>
+          <div class="px-4 pb-1.5 shrink-0 phone-bg">
+            <span class="text-[9px] text-slate-400" id="insight-count">13개의 인사이트</span>
           </div>
 
           <!-- Swipeable Card Area -->
-          <div class="flex-1 relative overflow-hidden" style="background: #1a1a1f;" id="carousel-container">
+          <div class="flex-1 relative overflow-hidden phone-bg" id="carousel-container">
             <div class="phone-carousel-track h-full flex items-start pt-1" id="carousel-track">
               <!-- Cards are injected by JS -->
             </div>
           </div>
 
           <!-- Dots -->
-          <div class="flex justify-center gap-1 py-1.5 shrink-0" style="background: #1a1a1f;" id="carousel-dots"></div>
+          <div class="flex justify-center gap-1 py-1.5 shrink-0 phone-bg" id="carousel-dots"></div>
 
           <!-- Bottom Tab Bar -->
           <div class="phone-tab-bar shrink-0">
@@ -251,17 +312,41 @@
       </div>
     </div>
 
-    <!-- Swipe hint below phone -->
-    <div class="relative z-10 mt-6 flex flex-col items-center gap-4">
-      <div class="flex items-center gap-2 text-gray-400 text-sm">
+    <!-- Swipe hint + CTA below phone -->
+    <div class="relative z-10 mt-6 flex flex-col items-center gap-4 px-4">
+      <div class="flex items-center gap-2 text-slate-500 text-sm">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 swipe-hint-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3m4-4L3 12m0 0l4 4"/></svg>
         좌우로 스와이프 해보세요
       </div>
-      <div class="mt-2 text-center">
-        <p class="text-xl sm:text-2xl font-semibold mb-2">당신의 인사이트를 <span class="gradient-text">판매</span>해보세요</p>
-        <p class="text-gray-500 text-sm max-w-sm mx-auto px-4">누구나 자신만의 경험과 노하우를 등록하고,<br/>1:1 미팅으로 수익을 창출할 수 있습니다.</p>
+
+      <!-- App download CTA in hero -->
+      <div class="mt-4 flex flex-col sm:flex-row items-center gap-3">
+        <a href="https://apps.apple.com/kr/app/buyyou/id6761962820" target="_blank" rel="noopener" class="store-btn" aria-label="App Store에서 다운로드">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM263.5 89.5c26.6-31.6 24.2-60.4 23.4-70.8-23.5 1.4-50.7 16-66.2 34-17.1 19.3-27.1 43.2-25 68.3 25.4 1.9 48.5-11.1 67.8-31.5z"/></svg>
+          <span class="store-label">
+            <span class="small">Download on the</span>
+            <span class="big">App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.buyyou.app" target="_blank" rel="noopener" class="store-btn" aria-label="Google Play에서 다운로드">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 512 512" aria-hidden="true">
+            <path fill="#34a853" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
+            <path fill="#fbbc04" d="M104.6 13l220.7 221.3L385.4 174.2zM385.4 337.8l-60.1-60.1L104.6 499 385.4 337.8z"/>
+            <path fill="#4285f4" d="M104.6 13C92.3 19.5 84 31.4 84 47.4v417.2c0 16 8.3 27.9 20.6 34.4l220.7-221.3L104.6 13z"/>
+            <path fill="#ea4335" d="M325.3 277.7l60.1 60.1 89.3-51.4c17.7-10.2 17.7-32.4 0-42.6l-89.3-51.4-60.1 60.1z"/>
+          </svg>
+          <span class="store-label">
+            <span class="small">GET IT ON</span>
+            <span class="big">Google Play</span>
+          </span>
+        </a>
       </div>
-      <a href="#story" class="mt-2 inline-flex items-center gap-2 px-7 py-3 bg-lime-400 text-dark-900 font-semibold rounded-full hover:bg-lime-500 transition text-sm">
+
+      <div class="mt-3 text-center">
+        <p class="text-xl sm:text-2xl font-semibold mb-2 text-slate-900">당신의 인사이트를 <span class="gradient-text">판매</span>해보세요</p>
+        <p class="text-slate-500 text-sm max-w-sm mx-auto px-4">누구나 자신만의 경험과 노하우를 등록하고,<br/>1:1 미팅으로 수익을 창출할 수 있습니다.</p>
+      </div>
+      <a href="#story" class="mt-1 inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm transition">
         서비스 더 알아보기
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
       </a>
@@ -269,121 +354,121 @@
   </section>
 
   <!-- Warren Buffett Story -->
-  <section id="story" class="py-16 sm:py-20" style="scroll-margin-top: 80px;">
+  <section id="story" class="py-16 sm:py-20 bg-white" style="scroll-margin-top: 80px;">
     <div class="max-w-2xl mx-auto px-6 text-center">
-      <p class="text-gray-500 text-xs tracking-widest uppercase mb-6">Why Experience Matters</p>
-      <p class="text-xl sm:text-2xl text-gray-300 leading-relaxed mb-2">
+      <p class="text-slate-400 text-xs tracking-widest uppercase mb-6">Why Experience Matters</p>
+      <p class="text-xl sm:text-2xl text-slate-700 leading-relaxed mb-2">
         2022년, 워렌 버핏과 점심 한 끼에
       </p>
       <p class="text-4xl sm:text-5xl font-bold gradient-text mb-4">246억원</p>
-      <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-10">
-        밥값이 아닙니다. 60년간 쌓아온 <strong class="text-white">경험과 대화</strong>의 가격이었습니다.
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-10">
+        밥값이 아닙니다. 60년간 쌓아온 <strong class="text-slate-900">경험과 대화</strong>의 가격이었습니다.
       </p>
-      <p class="text-lg sm:text-xl font-semibold text-white leading-relaxed">
+      <p class="text-lg sm:text-xl font-semibold text-slate-900 leading-relaxed">
         당신의 경험도, <span class="gradient-text">누군가에겐 그만한 가치</span>입니다.
       </p>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-24 relative">
+  <section id="features" class="py-24 relative bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">Features</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">경험 거래를 위한 모든 기능</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">인사이트 등록부터 결제, 채팅, 미팅, 정산까지 — 안전하고 편리한 경험 거래 플랫폼</p>
+        <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">Features</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">경험 거래를 위한 모든 기능</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">인사이트 등록부터 결제, 채팅, 미팅, 정산까지 — 안전하고 편리한 경험 거래 플랫폼</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">인사이트 등록</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">당신의 전문 분야 경험, 노하우, 커리어 조언을 인사이트로 등록하고 판매하세요. 카테고리별 분류와 미팅 방식 선택이 가능합니다.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">인사이트 등록</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">당신의 전문 분야 경험, 노하우, 커리어 조언을 인사이트로 등록하고 판매하세요. 카테고리별 분류와 미팅 방식 선택이 가능합니다.</p>
         </div>
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-blue-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">안전한 결제</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">KG이니시스 PG사를 통한 안전한 결제 시스템. 신용카드, 간편결제(카카오페이, 네이버페이 등)를 지원합니다.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">안전한 결제</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">KG이니시스 PG사를 통한 안전한 결제 시스템. 신용카드, 간편결제(카카오페이, 네이버페이 등)를 지원합니다.</p>
         </div>
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-purple-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">실시간 채팅</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">인사이트 구매 즉시 채팅방이 자동 생성됩니다. 판매자와 실시간으로 미팅 일정과 장소를 조율하세요.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">실시간 채팅</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">인사이트 구매 즉시 채팅방이 자동 생성됩니다. 판매자와 실시간으로 미팅 일정과 장소를 조율하세요.</p>
         </div>
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-green-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">에스크로 정산</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">결제 금액은 미팅 완료 확인 전까지 안전하게 보관됩니다. 양측 확인 또는 24시간 자동 확정 후 판매자에게 정산됩니다.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">에스크로 정산</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">결제 금액은 미팅 완료 확인 전까지 안전하게 보관됩니다. 양측 확인 또는 24시간 자동 확정 후 판매자에게 정산됩니다.</p>
         </div>
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-orange-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">본인인증</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">KG이니시스 본인인증으로 모든 회원의 실명을 확인합니다. 안전한 거래 환경을 보장합니다.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">본인인증</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">KG이니시스 본인인증으로 모든 회원의 실명을 확인합니다. 안전한 거래 환경을 보장합니다.</p>
         </div>
-        <div class="feature-card bg-dark-800 rounded-2xl p-6 border border-white/5">
-          <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2">전문성 인증</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">회사 이메일, 사업자등록번호, LinkedIn·Instagram 연동으로 경력과 전문성을 인증합니다. 인증된 판매자의 인사이트가 우선 노출됩니다.</p>
+          <h3 class="text-lg font-semibold mb-2 text-slate-900">전문성 인증</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">회사 이메일, 사업자등록번호, LinkedIn·Instagram 연동으로 경력과 전문성을 인증합니다. 인증된 판매자의 인사이트가 우선 노출됩니다.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section id="how-it-works" class="py-24 bg-dark-800/50">
+  <section id="how-it-works" class="py-24 surface-tint">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">How it works</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">간단한 이용 방법</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">가입부터 미팅 완료까지, 5단계로 완성되는 경험 거래</p>
+        <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">How it works</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">간단한 이용 방법</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">가입부터 미팅 완료까지, 5단계로 완성되는 경험 거래</p>
       </div>
       <div class="max-w-2xl mx-auto relative">
-        <div class="absolute left-[23px] top-12 bottom-12 w-0.5 bg-gradient-to-b from-lime-400/20 via-lime-400/40 to-lime-400/80"></div>
+        <div class="absolute left-[23px] top-12 bottom-12 w-0.5 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-600"></div>
         <div class="space-y-10">
           <div class="flex gap-5 relative">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-lime-400 text-dark-900 flex items-center justify-center font-bold text-lg z-10">1</div>
+            <div class="shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary-600/30">1</div>
             <div class="pt-2">
-              <h3 class="text-lg font-semibold mb-1">회원가입 &amp; 본인인증</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">Apple 또는 Google 소셜 로그인으로 간편 가입. KG이니시스 본인인증으로 실명 확인 후 서비스를 이용합니다.</p>
+              <h3 class="text-lg font-semibold mb-1 text-slate-900">회원가입 &amp; 본인인증</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Apple 또는 Google 소셜 로그인으로 간편 가입. KG이니시스 본인인증으로 실명 확인 후 서비스를 이용합니다.</p>
             </div>
           </div>
           <div class="flex gap-5 relative">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-lime-400 text-dark-900 flex items-center justify-center font-bold text-lg z-10">2</div>
+            <div class="shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary-600/30">2</div>
             <div class="pt-2">
-              <h3 class="text-lg font-semibold mb-1">인사이트 탐색 &amp; 구매</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">다양한 카테고리의 인사이트를 검색/필터링하고, 원하는 인사이트를 선착순으로 구매합니다. (KG이니시스 PG 결제)</p>
+              <h3 class="text-lg font-semibold mb-1 text-slate-900">인사이트 탐색 &amp; 구매</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">다양한 카테고리의 인사이트를 검색/필터링하고, 원하는 인사이트를 선착순으로 구매합니다. (KG이니시스 PG 결제)</p>
             </div>
           </div>
           <div class="flex gap-5 relative">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-lime-400 text-dark-900 flex items-center justify-center font-bold text-lg z-10">3</div>
+            <div class="shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary-600/30">3</div>
             <div class="pt-2">
-              <h3 class="text-lg font-semibold mb-1">채팅으로 미팅 조율</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">구매 즉시 자동 생성된 채팅방에서 판매자와 미팅 일정, 장소, 방식(대면/화상/전화)을 조율합니다.</p>
+              <h3 class="text-lg font-semibold mb-1 text-slate-900">채팅으로 미팅 조율</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">구매 즉시 자동 생성된 채팅방에서 판매자와 미팅 일정, 장소, 방식(대면/화상/전화)을 조율합니다.</p>
             </div>
           </div>
           <div class="flex gap-5 relative">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-lime-400 text-dark-900 flex items-center justify-center font-bold text-lg z-10">4</div>
+            <div class="shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary-600/30">4</div>
             <div class="pt-2">
-              <h3 class="text-lg font-semibold mb-1">1:1 미팅 진행</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">약속된 시간과 장소에서 전문가와 1:1 미팅을 진행합니다.</p>
+              <h3 class="text-lg font-semibold mb-1 text-slate-900">1:1 미팅 진행</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">약속된 시간과 장소에서 전문가와 1:1 미팅을 진행합니다.</p>
             </div>
           </div>
           <div class="flex gap-5 relative">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-lime-400 text-dark-900 flex items-center justify-center font-bold text-lg z-10">5</div>
+            <div class="shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary-600/30">5</div>
             <div class="pt-2">
-              <h3 class="text-lg font-semibold mb-1">미팅 완료 &amp; 자동 정산</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">양측 미팅 완료 확인 → 판매자에게 정산. 24시간 미확인 시 자동 확정됩니다.</p>
+              <h3 class="text-lg font-semibold mb-1 text-slate-900">미팅 완료 &amp; 자동 정산</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">양측 미팅 완료 확인 → 판매자에게 정산. 24시간 미확인 시 자동 확정됩니다.</p>
             </div>
           </div>
         </div>
@@ -392,197 +477,242 @@
   </section>
 
   <!-- Safety & Trust -->
-  <section id="safety" class="py-24">
+  <section id="safety" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">Safety &amp; Trust</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">안전한 거래 환경</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">다중 보안 체계로 안심하고 거래하세요</p>
+        <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">Safety &amp; Trust</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">안전한 거래 환경</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">다중 보안 체계로 안심하고 거래하세요</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-blue-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">PG사 결제</h3>
-          <p class="text-gray-400 text-sm">KG이니시스 인증 결제<br/>신용카드·간편결제</p>
+          <h3 class="font-semibold mb-2 text-slate-900">PG사 결제</h3>
+          <p class="text-slate-600 text-sm">KG이니시스 인증 결제<br/>신용카드·간편결제</p>
         </div>
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-green-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">에스크로 보관</h3>
-          <p class="text-gray-400 text-sm">미팅 완료 전까지<br/>결제금 안전 보관</p>
+          <h3 class="font-semibold mb-2 text-slate-900">에스크로 보관</h3>
+          <p class="text-slate-600 text-sm">미팅 완료 전까지<br/>결제금 안전 보관</p>
         </div>
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-orange-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">본인인증</h3>
-          <p class="text-gray-400 text-sm">KG이니시스 인증<br/>실명 확인 필수</p>
+          <h3 class="font-semibold mb-2 text-slate-900">본인인증</h3>
+          <p class="text-slate-600 text-sm">KG이니시스 인증<br/>실명 확인 필수</p>
         </div>
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-purple-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">소셜 인증</h3>
-          <p class="text-gray-400 text-sm">LinkedIn·Instagram<br/>OAuth 신뢰도 인증</p>
+          <h3 class="font-semibold mb-2 text-slate-900">소셜 인증</h3>
+          <p class="text-slate-600 text-sm">LinkedIn·Instagram<br/>OAuth 신뢰도 인증</p>
         </div>
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-lime-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">경력 인증</h3>
-          <p class="text-gray-400 text-sm">회사 이메일·사업자등록번호<br/>인증으로 전문성 증명</p>
+          <h3 class="font-semibold mb-2 text-slate-900">경력 인증</h3>
+          <p class="text-slate-600 text-sm">회사 이메일·사업자등록번호<br/>인증으로 전문성 증명</p>
         </div>
-        <div class="text-center p-6 bg-dark-800 rounded-2xl border border-white/5">
-          <div class="w-16 h-16 rounded-2xl bg-amber-400/10 flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <div class="text-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <h3 class="font-semibold mb-2">신뢰 점수</h3>
-          <p class="text-gray-400 text-sm">활동·인증·리뷰 기반 점수<br/>100점 초과 오버차지 시스템</p>
+          <h3 class="font-semibold mb-2 text-slate-900">신뢰 점수</h3>
+          <p class="text-slate-600 text-sm">활동·인증·리뷰 기반 점수<br/>100점 초과 오버차지 시스템</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="py-24 bg-dark-800/50">
+  <section id="pricing" class="py-24 surface-tint">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">Pricing</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">투명한 요금 정책</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">구매자에게는 추가 수수료 없이, 판매자에게는 합리적인 플랫폼 수수료만 적용</p>
+        <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">Pricing</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">투명한 요금 정책</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">구매자에게는 추가 수수료 없이, 판매자에게는 합리적인 플랫폼 수수료만 적용</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="bg-dark-800 rounded-2xl p-8 border border-white/5 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary-100/40 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div class="relative">
-            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 text-lime-400 text-xs font-medium mb-6">구매자</div>
-            <h3 class="text-2xl font-bold mb-2">추가 수수료 없음</h3>
-            <p class="text-gray-400 text-sm mb-8">인사이트 표시 가격이 결제 금액입니다</p>
+            <div class="inline-flex px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-medium mb-6">구매자</div>
+            <h3 class="text-2xl font-bold mb-2 text-slate-900">추가 수수료 없음</h3>
+            <p class="text-slate-600 text-sm mb-8">인사이트 표시 가격이 결제 금액입니다</p>
             <div class="space-y-4">
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">인사이트 최소 가격: 50,000원</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">신용카드, 간편결제 지원</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">미팅 전 취소 시 위약금 3,000원</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">에스크로 보관으로 안전 거래</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">인사이트 최소 가격: 50,000원</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">신용카드, 간편결제 지원</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">미팅 전 취소 시 위약금 3,000원</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">에스크로 보관으로 안전 거래</span></div>
             </div>
           </div>
         </div>
-        <div class="bg-dark-800 rounded-2xl p-8 border border-lime-400/30 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="bg-white rounded-2xl p-8 border border-primary-200 shadow-md ring-1 ring-primary-100 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary-100/60 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div class="relative">
-            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/20 text-lime-400 text-xs font-medium mb-6">판매자</div>
-            <h3 class="text-2xl font-bold mb-2">플랫폼 수수료 <span class="gradient-text">10%</span></h3>
-            <p class="text-gray-400 text-sm mb-8">거래 금액의 90%를 정산받습니다</p>
+            <div class="inline-flex px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-medium mb-6">판매자</div>
+            <h3 class="text-2xl font-bold mb-2 text-slate-900">플랫폼 수수료 <span class="gradient-text">10%</span></h3>
+            <p class="text-slate-600 text-sm mb-8">거래 금액의 90%를 정산받습니다</p>
             <div class="space-y-4">
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">판매 금액의 90% 정산</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">PG 수수료는 90% 몫에서 차감</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">미팅 완료 후 자동 정산</span></div>
-              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-300">구매자 취소 시 위약금 3,000원 보상</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">판매 금액의 90% 정산</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">PG 수수료는 90% 몫에서 차감</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">미팅 완료 후 자동 정산</span></div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-slate-700">구매자 취소 시 위약금 3,000원 보상</span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="mt-12 text-center">
-        <div class="inline-flex flex-col sm:flex-row gap-4 items-center bg-dark-700/50 rounded-2xl px-8 py-5 border border-white/5">
+        <div class="inline-flex flex-col sm:flex-row gap-4 items-center bg-white rounded-2xl px-8 py-5 border border-slate-200/80 shadow-sm">
           <div class="flex items-center gap-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span class="text-sm text-gray-300">정산 예시: 100,000원 판매 시</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-sm text-slate-700">정산 예시: 100,000원 판매 시</span>
           </div>
-          <div class="hidden sm:block w-px h-8 bg-white/10"></div>
+          <div class="hidden sm:block w-px h-8 bg-slate-200"></div>
           <div class="text-sm">
-            <span class="text-gray-400">수수료 10,000원</span>
-            <span class="mx-2 text-gray-600">→</span>
-            <span class="text-lime-400 font-semibold">판매자 약 87,000원 정산</span>
-            <span class="text-gray-500 text-xs ml-1">(PG ~3% 차감)</span>
+            <span class="text-slate-500">수수료 10,000원</span>
+            <span class="mx-2 text-slate-300">→</span>
+            <span class="text-primary-600 font-semibold">판매자 약 87,000원 정산</span>
+            <span class="text-slate-400 text-xs ml-1">(PG ~3% 차감)</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download CTA -->
+  <section id="download" class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary-100/40 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="bg-gradient-to-br from-primary-600 to-primary-700 rounded-3xl p-10 sm:p-14 text-center text-white shadow-2xl shadow-primary-600/30 relative overflow-hidden">
+        <div class="absolute -top-16 -right-16 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <p class="text-primary-100 text-sm font-semibold tracking-wider uppercase mb-3">Download</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">지금 BuyYou를 다운로드하세요</h2>
+          <p class="text-primary-100 max-w-xl mx-auto mb-10 text-sm sm:text-base leading-relaxed">
+            iOS와 Android 모두 정식 출시되었습니다.<br/>
+            전문가의 경험을 1:1 미팅으로 바로 만나보세요.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="https://apps.apple.com/kr/app/buyyou/id6761962820" target="_blank" rel="noopener" class="store-btn" aria-label="App Store에서 다운로드">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM263.5 89.5c26.6-31.6 24.2-60.4 23.4-70.8-23.5 1.4-50.7 16-66.2 34-17.1 19.3-27.1 43.2-25 68.3 25.4 1.9 48.5-11.1 67.8-31.5z"/></svg>
+              <span class="store-label">
+                <span class="small">Download on the</span>
+                <span class="big">App Store</span>
+              </span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.buyyou.app" target="_blank" rel="noopener" class="store-btn" aria-label="Google Play에서 다운로드">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 512 512" aria-hidden="true">
+                <path fill="#34a853" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
+                <path fill="#fbbc04" d="M104.6 13l220.7 221.3L385.4 174.2zM385.4 337.8l-60.1-60.1L104.6 499 385.4 337.8z"/>
+                <path fill="#4285f4" d="M104.6 13C92.3 19.5 84 31.4 84 47.4v417.2c0 16 8.3 27.9 20.6 34.4l220.7-221.3L104.6 13z"/>
+                <path fill="#ea4335" d="M325.3 277.7l60.1 60.1 89.3-51.4c17.7-10.2 17.7-32.4 0-42.6l-89.3-51.4-60.1 60.1z"/>
+              </svg>
+              <span class="store-label">
+                <span class="small">GET IT ON</span>
+                <span class="big">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <p class="mt-8 text-xs text-primary-100/80">
+            iOS 15.0+ · Android 8.0+ 지원
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-24">
+  <section class="py-24 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">FAQ</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">자주 묻는 질문</h2>
+        <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">자주 묻는 질문</h2>
       </div>
       <div class="space-y-4">
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">BuyYou는 어떤 서비스인가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">전문가의 경험, 노하우, 커리어 조언 등을 "인사이트"로 등록하고, 이를 필요로 하는 사람이 구매하여 1:1 미팅(대면, 화상, 전화)을 진행하는 플랫폼입니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">BuyYou는 어떤 서비스인가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">전문가의 경험, 노하우, 커리어 조언 등을 "인사이트"로 등록하고, 이를 필요로 하는 사람이 구매하여 1:1 미팅(대면, 화상, 전화)을 진행하는 플랫폼입니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">결제는 어떻게 이루어지나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">KG이니시스 PG사를 통해 안전하게 처리됩니다. 신용카드, 카카오페이, 네이버페이 등을 지원하며, 결제 금액은 에스크로 방식으로 미팅 완료까지 안전 보관됩니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">결제는 어떻게 이루어지나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">KG이니시스 PG사를 통해 안전하게 처리됩니다. 신용카드, 카카오페이, 네이버페이 등을 지원하며, 결제 금액은 에스크로 방식으로 미팅 완료까지 안전 보관됩니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">환불은 가능한가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">미팅 24시간 전까지 취소 시 위약금 3,000원 차감 후 환불됩니다. 판매자 귀책(노쇼 등) 시 전액 환불됩니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">환불은 가능한가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">미팅 24시간 전까지 취소 시 위약금 3,000원 차감 후 환불됩니다. 판매자 귀책(노쇼 등) 시 전액 환불됩니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">누구나 인사이트를 판매할 수 있나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">본인인증 완료한 만 19세 이상 회원은 누구나 등록 가능합니다. 최소 가격은 50,000원이며, 대면/화상/전화 미팅 방식을 선택할 수 있습니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">누구나 인사이트를 판매할 수 있나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">본인인증 완료한 만 19세 이상 회원은 누구나 등록 가능합니다. 최소 가격은 50,000원이며, 대면/화상/전화 미팅 방식을 선택할 수 있습니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">정산은 언제 되나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">양측 미팅 완료 확인 후 정산이 진행됩니다. 24시간 미확인 시 자동 확정. 판매자는 90%에서 PG 수수료를 차감한 금액을 받습니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">정산은 언제 되나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">양측 미팅 완료 확인 후 정산이 진행됩니다. 24시간 미확인 시 자동 확정. 판매자는 90%에서 PG 수수료를 차감한 금액을 받습니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">신뢰 점수와 전문성 인증은 무엇인가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">신뢰 점수는 본인인증, 프로필 완성도, 소셜 연동, 판매 실적, 리뷰 등으로 0~100점까지 쌓입니다. 추가로 회사 이메일이나 사업자등록번호로 경력을 인증하면 100점을 초과하는 보너스 점수(오버차지)를 받을 수 있으며, 인증된 판매자의 인사이트는 우선 노출됩니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">신뢰 점수와 전문성 인증은 무엇인가요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">신뢰 점수는 본인인증, 프로필 완성도, 소셜 연동, 판매 실적, 리뷰 등으로 0~100점까지 쌓입니다. 추가로 회사 이메일이나 사업자등록번호로 경력을 인증하면 100점을 초과하는 보너스 점수(오버차지)를 받을 수 있으며, 인증된 판매자의 인사이트는 우선 노출됩니다.</div>
         </details>
-        <details class="group bg-dark-800 rounded-2xl border border-white/5 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm">대기업에 다니지 않아도 경력 인증이 되나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <div class="px-5 pb-5 text-sm text-gray-400 leading-relaxed">네! 회사 이메일 인증 외에도 사업자등록번호 인증을 지원합니다. 자영업자, 프리랜서, 소규모 사업자 등 누구나 공평하게 경력을 인증하고 보너스 점수를 받을 수 있습니다. 직업에 귀천이 없듯, 모든 경험은 가치가 있습니다.</div>
+        <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <summary class="flex items-center justify-between p-5 cursor-pointer"><span class="font-medium text-sm text-slate-900">대기업에 다니지 않아도 경력 인증이 되나요?</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">네! 회사 이메일 인증 외에도 사업자등록번호 인증을 지원합니다. 자영업자, 프리랜서, 소규모 사업자 등 누구나 공평하게 경력을 인증하고 보너스 점수를 받을 수 있습니다. 직업에 귀천이 없듯, 모든 경험은 가치가 있습니다.</div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- Contact / Company -->
-  <section id="contact" class="py-24 bg-dark-800/50">
+  <section id="contact" class="py-24 surface-tint">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <p class="text-lime-400 text-sm font-semibold tracking-wider uppercase mb-3">Contact</p>
-          <h2 class="text-3xl font-bold mb-6">문의하기</h2>
-          <p class="text-gray-400 mb-8 leading-relaxed">BuyYou 서비스에 대한 문의사항이 있으시면 아래 연락처로 연락해 주세요.</p>
+          <p class="text-primary-600 text-sm font-semibold tracking-wider uppercase mb-3">Contact</p>
+          <h2 class="text-3xl font-bold mb-6 text-slate-900">문의하기</h2>
+          <p class="text-slate-600 mb-8 leading-relaxed">BuyYou 서비스에 대한 문의사항이 있으시면 아래 연락처로 연락해 주세요.</p>
           <div class="space-y-4">
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </div>
-              <div><p class="text-sm text-gray-400">이메일</p><a href="mailto:ixplorer@hidemeplease.xyz" class="text-white hover:text-lime-400 transition">ixplorer@hidemeplease.xyz</a></div>
+              <div><p class="text-sm text-slate-500">이메일</p><a href="mailto:ixplorer@hidemeplease.xyz" class="text-slate-900 hover:text-primary-600 transition">ixplorer@hidemeplease.xyz</a></div>
             </div>
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               </div>
-              <div><p class="text-sm text-gray-400">전화</p><a href="tel:01054923665" class="text-white hover:text-lime-400 transition">010-5492-3665</a></div>
+              <div><p class="text-sm text-slate-500">전화</p><a href="tel:01054923665" class="text-slate-900 hover:text-primary-600 transition">010-5492-3665</a></div>
             </div>
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
-              <div><p class="text-sm text-gray-400">주소</p><p class="text-white">서울 중구 을지로11길 33, 2층</p></div>
+              <div><p class="text-sm text-slate-500">주소</p><p class="text-slate-900">서울 중구 을지로11길 33, 2층</p></div>
             </div>
           </div>
         </div>
-        <div class="bg-dark-900 rounded-2xl p-8 border border-white/5">
-          <h3 class="text-lg font-semibold mb-6">회사 정보</h3>
+        <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm">
+          <h3 class="text-lg font-semibold mb-6 text-slate-900">회사 정보</h3>
           <div class="space-y-4 text-sm">
-            <div class="flex justify-between items-start py-3 border-b border-white/5"><span class="text-gray-400 shrink-0">상호명</span><span class="text-right">주식회사 하이드미플리즈<br/><span class="text-gray-500">HideMePlease Inc.</span></span></div>
-            <div class="flex justify-between py-3 border-b border-white/5"><span class="text-gray-400">대표자</span><span>유현</span></div>
-            <div class="flex justify-between py-3 border-b border-white/5"><span class="text-gray-400">사업자등록번호</span><span>777-86-02664</span></div>
-            <div class="flex justify-between items-start py-3 border-b border-white/5"><span class="text-gray-400 shrink-0">통신판매업 신고</span><span class="text-right">제2023-서울중구-0094호</span></div>
-            <div class="flex justify-between py-3 border-b border-white/5"><span class="text-gray-400">법인등록번호</span><span>1101118472807</span></div>
-            <div class="flex justify-between items-start py-3 border-b border-white/5"><span class="text-gray-400 shrink-0">사업장 주소</span><span class="text-right">(04543) 서울 중구<br/>을지로11길 33, 2층</span></div>
-            <div class="flex justify-between py-3 border-b border-white/5"><span class="text-gray-400">연락처</span><span>010-5492-3665</span></div>
-            <div class="flex justify-between py-3 border-b border-white/5"><span class="text-gray-400">이메일</span><span>ixplorer@hidemeplease.xyz</span></div>
-            <div class="flex justify-between py-3"><span class="text-gray-400">업종</span><span>정보통신업</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-slate-200"><span class="text-slate-500 shrink-0">상호명</span><span class="text-right text-slate-800">주식회사 하이드미플리즈<br/><span class="text-slate-400">HideMePlease Inc.</span></span></div>
+            <div class="flex justify-between py-3 border-b border-slate-200"><span class="text-slate-500">대표자</span><span class="text-slate-800">유현</span></div>
+            <div class="flex justify-between py-3 border-b border-slate-200"><span class="text-slate-500">사업자등록번호</span><span class="text-slate-800">777-86-02664</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-slate-200"><span class="text-slate-500 shrink-0">통신판매업 신고</span><span class="text-right text-slate-800">제2023-서울중구-0094호</span></div>
+            <div class="flex justify-between py-3 border-b border-slate-200"><span class="text-slate-500">법인등록번호</span><span class="text-slate-800">1101118472807</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-slate-200"><span class="text-slate-500 shrink-0">사업장 주소</span><span class="text-right text-slate-800">(04543) 서울 중구<br/>을지로11길 33, 2층</span></div>
+            <div class="flex justify-between py-3 border-b border-slate-200"><span class="text-slate-500">연락처</span><span class="text-slate-800">010-5492-3665</span></div>
+            <div class="flex justify-between py-3 border-b border-slate-200"><span class="text-slate-500">이메일</span><span class="text-slate-800">ixplorer@hidemeplease.xyz</span></div>
+            <div class="flex justify-between py-3"><span class="text-slate-500">업종</span><span class="text-slate-800">정보통신업</span></div>
           </div>
         </div>
       </div>
@@ -590,24 +720,24 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 border-t border-white/5">
+  <footer class="py-12 border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex flex-col items-center md:items-start gap-2">
-          <a href="#" class="text-xl font-light tracking-wider">Buy<span class="gradient-text font-semibold">You</span></a>
-          <p class="text-xs text-gray-500">당신의 경험을 삽니다.</p>
+          <a href="#" class="text-xl font-light tracking-wider text-slate-900">Buy<span class="gradient-text font-semibold">You</span></a>
+          <p class="text-xs text-slate-500">당신의 경험을 삽니다.</p>
         </div>
-        <div class="flex items-center gap-6 text-sm text-gray-400">
-          <a href="terms.html" class="hover:text-white transition">이용약관</a>
-          <a href="privacy.html" class="hover:text-white transition">개인정보처리방침</a>
-          <a href="#contact" class="hover:text-white transition">문의하기</a>
+        <div class="flex items-center gap-6 text-sm text-slate-500">
+          <a href="terms.html" class="hover:text-primary-600 transition">이용약관</a>
+          <a href="privacy.html" class="hover:text-primary-600 transition">개인정보처리방침</a>
+          <a href="#contact" class="hover:text-primary-600 transition">문의하기</a>
         </div>
       </div>
-      <div class="mt-8 pt-6 border-t border-white/5 text-center space-y-3">
-        <p class="text-xs text-gray-500 leading-relaxed max-w-2xl mx-auto">주식회사 하이드미플리즈는 전자상거래법 제20조의2에 따라 플랫폼에서 이루어지는 거래에 대해 판매자와 연대하여 책임을 부담하며, 환불·민원 등의 처리는 주식회사 하이드미플리즈에서 진행합니다.</p>
-        <p class="text-xs text-gray-600">&copy; 2026 주식회사 하이드미플리즈 (HideMePlease Inc.) All rights reserved.</p>
-        <p class="text-xs text-gray-600">사업자등록번호: 777-86-02664 | 통신판매업: 제2023-서울중구-0094호 | 대표: 유현</p>
-        <p class="text-xs text-gray-600">서울특별시 중구 을지로11길 33, 2층 | 연락처: 010-5492-3665 | ixplorer@hidemeplease.xyz</p>
+      <div class="mt-8 pt-6 border-t border-slate-200 text-center space-y-3">
+        <p class="text-xs text-slate-500 leading-relaxed max-w-2xl mx-auto">주식회사 하이드미플리즈는 전자상거래법 제20조의2에 따라 플랫폼에서 이루어지는 거래에 대해 판매자와 연대하여 책임을 부담하며, 환불·민원 등의 처리는 주식회사 하이드미플리즈에서 진행합니다.</p>
+        <p class="text-xs text-slate-400">&copy; 2026 주식회사 하이드미플리즈 (HideMePlease Inc.) All rights reserved.</p>
+        <p class="text-xs text-slate-400">사업자등록번호: 777-86-02664 | 통신판매업: 제2023-서울중구-0094호 | 대표: 유현</p>
+        <p class="text-xs text-slate-400">서울특별시 중구 을지로11길 33, 2층 | 연락처: 010-5492-3665 | ixplorer@hidemeplease.xyz</p>
       </div>
     </div>
   </footer>
@@ -812,8 +942,8 @@
           <!-- Content -->
           <div class="px-3.5 pt-3 pb-2">
             <div class="flex gap-1.5 mb-2">
-              <span class="px-2 py-0.5 rounded-full text-[9px] border border-black/15 text-black/60 bg-white/25">${item.category}</span>
-              ${item.meetingType === 'online' ? '<span class="px-2 py-0.5 rounded-full text-[9px] border border-blue-400/30 text-blue-700 bg-blue-50/40">온라인</span>' : ''}
+              <span class="px-2 py-0.5 rounded-full text-[9px] border border-black/15 text-black/60 bg-white/40">${item.category}</span>
+              ${item.meetingType === 'online' ? '<span class="px-2 py-0.5 rounded-full text-[9px] border border-blue-500/30 text-blue-700 bg-blue-50/60">온라인</span>' : ''}
             </div>
             <h3 class="text-[14px] font-bold text-black leading-snug line-clamp-2 mb-1.5">${item.title}</h3>
             <p class="text-[11px] text-black/55 leading-relaxed line-clamp-2">${item.description}</p>
@@ -835,14 +965,14 @@
               <span class="text-[9px] text-black/40 block">가격</span>
               <span class="text-[16px] font-bold text-black">${item.price.toLocaleString()}원</span>
             </div>
-            <div class="bg-black text-white text-center py-2.5 rounded-xl text-[12px] font-bold">구매하기</div>
+            <div class="bg-[#1047C2] text-white text-center py-2.5 rounded-xl text-[12px] font-bold">구매하기</div>
           </div>
         </div>
       </div>
     `).join('');
 
     dotsContainer.innerHTML = insights.map((_, i) => `
-      <button data-dot="${i}" class="rounded-full transition-all duration-300 ${i === 0 ? 'w-5 h-1.5 bg-lime-400' : 'w-1.5 h-1.5 bg-white/20'}"></button>
+      <button data-dot="${i}" class="rounded-full transition-all duration-300 ${i === 0 ? 'w-5 h-1.5 bg-[#1047C2]' : 'w-1.5 h-1.5 bg-slate-200'}"></button>
     `).join('');
 
     dotsContainer.querySelectorAll('button').forEach(btn => {
@@ -874,9 +1004,9 @@
 
     dotsContainer.querySelectorAll('button').forEach((dot, i) => {
       if (i === index) {
-        dot.className = 'rounded-full transition-all duration-300 w-5 h-1.5 bg-lime-400';
+        dot.className = 'rounded-full transition-all duration-300 w-5 h-1.5 bg-[#1047C2]';
       } else {
-        dot.className = 'rounded-full transition-all duration-300 w-1.5 h-1.5 bg-white/20';
+        dot.className = 'rounded-full transition-all duration-300 w-1.5 h-1.5 bg-slate-200';
       }
     });
   }
@@ -928,6 +1058,8 @@
   renderCards();
   document.getElementById('insight-count').textContent = `${insights.length}개의 인사이트`;
   goTo(0);
+  // Re-center on resize
+  window.addEventListener('resize', () => goTo(currentIndex));
   </script>
 
 </body>
