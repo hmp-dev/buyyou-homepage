@@ -70,16 +70,19 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .stores {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
       margin-top: 8px;
+      width: 100%;
+      max-width: 280px;
     }
     .store-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 20px;
+      width: 100%;
+      padding: 13px 20px;
       border-radius: 12px;
       background: #1047C2;
       color: #ffffff;
@@ -90,6 +93,7 @@
       box-shadow: 0 4px 12px rgba(16, 71, 194, 0.24);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
+    .store-btn:active { transform: translateY(1px); }
     .store-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(16, 71, 194, 0.32); }
     .store-btn.alt {
       background: #ffffff;
@@ -104,6 +108,17 @@
       text-decoration: none;
     }
     .home-link:hover { color: #475569; }
+    .kakao-hint {
+      margin-top: 20px;
+      padding: 12px 14px;
+      max-width: 320px;
+      font-size: 12px;
+      color: #64748b;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      line-height: 1.55;
+    }
+    .kakao-hint b { color: #1047C2; }
   </style>
 </head>
 <body>
@@ -114,8 +129,15 @@
     <p id="subheading">잠시만 기다려주세요. 자동으로 BuyYou 앱이 열려요.</p>
 
     <div class="stores" id="stores" style="display: none;">
-      <a href="https://apps.apple.com/kr/app/buyyou/id6761962820" class="store-btn" id="ios-btn" style="display: none;">App Store에서 받기</a>
-      <a href="https://play.google.com/store/apps/details?id=com.buyyou.app" class="store-btn" id="android-btn" style="display: none;">Google Play에서 받기</a>
+      <a href="#" class="store-btn" id="open-app-btn" style="display: none;">BuyYou 앱에서 열기</a>
+      <a href="https://apps.apple.com/kr/app/buyyou/id6761962820" class="store-btn alt" id="ios-btn" style="display: none;">App Store에서 받기</a>
+      <a href="https://play.google.com/store/apps/details?id=com.buyyou.app" class="store-btn alt" id="android-btn" style="display: none;">Google Play에서 받기</a>
+    </div>
+
+    <div class="kakao-hint" id="kakao-hint" style="display: none;">
+      카카오톡 안에서는 BuyYou 앱이 자동으로 열리지 않아요.
+      위 <b>BuyYou 앱에서 열기</b> 버튼을 누르거나, 우측 상단 메뉴(⋯)에서
+      <b>다른 브라우저로 열기</b>를 선택해 주세요.
     </div>
 
     <a href="/" class="home-link" id="home-link" style="display: none;">BuyYou 홈페이지로 이동</a>
@@ -123,74 +145,106 @@
 
   <!--
     동작 흐름:
-    1. iOS / Android 단말은 Universal Links / App Links 가 정상 작동하면 OS 가
-       먼저 앱을 가로채 이 페이지에 도달하지 않음. 도달했다는 건 (a) 앱 미설치
-       또는 (b) Universal Links 검증 실패 (cold start race / 도메인 검증 진행 중)
-       또는 (c) 카톡 같은 in-app 브라우저가 가로챔.
-    2. (a)/(b) 케이스: 잠시 후 적절한 스토어로 redirect.
-    3. (c) 카톡 in-app 브라우저: redirect 후에도 in-app 브라우저 컨텍스트에 머물 수 있어,
-       "외부 브라우저에서 열기" 안내 + 스토어 버튼 명시 노출이 안전망 역할.
-    4. 데스크톱: 홈페이지로 redirect (스토어 redirect 는 의미 없음).
+    1. iOS / Android 단말 + 일반 브라우저(Safari/Chrome 등) — Universal Links / App Links 가
+       정상 작동하면 OS 가 먼저 앱을 가로채 이 페이지에 도달하지 않는다. 도달했다는 건
+       (a) 앱 미설치 또는 (b) Universal Links 검증 실패 (cold start race / 도메인 검증 진행 중).
+       두 케이스 모두 1.2초 후 적절한 스토어로 redirect.
 
-    OS 감지는 User-Agent 단순 매칭. 카톡 in-app 브라우저도 iOS/Android UA 를
-    그대로 들고 있어서 같은 분기로 처리되며, redirect 가 실패해도 fallback 버튼이
-    노출되어 사용자가 명시적으로 탭할 수 있다.
+    2. **카톡 in-app 브라우저** — User-Agent 에 "kakaotalk" 포함. 카톡은 자기 webview 안에서
+       페이지를 직접 띄워 OS layer 의 Universal Links 가로채기가 발동할 기회가 없다.
+       해결: `kakaotalk://web/openExternal?url=<현재 URL>` 을 호출해 카톡에 외부 브라우저 호출을
+       요청 → 카톡이 Safari/Chrome 으로 동일 URL 을 다시 열어줌 → 그 시점에 OS Universal
+       Links 가 발동해 BuyYou 앱이 가로채기. 자동 시도 + 명시 버튼 + 안내 카피로 3중 안전망.
+
+    3. 데스크톱 — redirect 안 하고 즉시 명시적 안내 + 양 스토어 버튼.
+
+    OS 감지는 User-Agent 단순 매칭. 카톡 외 다른 한국 in-app(네이버앱 등)도 향후 패턴이 잡히면
+    여기에 추가하면 된다 (현재는 카톡만 — 압도적 공유 비중).
   -->
   <script>
     (function () {
       var ua = (navigator.userAgent || '').toLowerCase();
       var isIOS = /iphone|ipad|ipod/.test(ua);
       var isAndroid = /android/.test(ua);
+      var isKakao = /kakaotalk/.test(ua);
+
       var IOS_STORE = 'https://apps.apple.com/kr/app/buyyou/id6761962820';
       var ANDROID_STORE = 'https://play.google.com/store/apps/details?id=com.buyyou.app';
-      var HOME = 'https://buyyou.app/';
+      var HERE = window.location.href; // /i/{insightId} 가 그대로 박혀있다.
+      var KAKAO_EXTERNAL = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(HERE);
 
-      function showFallback(target) {
-        document.getElementById('spinner').style.display = 'none';
-        document.getElementById('heading').textContent = '앱이 설치되어 있지 않나요?';
-        document.getElementById('subheading').textContent =
-          'BuyYou 앱을 설치하면 인사이트를 바로 확인할 수 있어요.';
-        document.getElementById('stores').style.display = 'flex';
-        if (target === 'ios') {
-          document.getElementById('ios-btn').style.display = 'inline-flex';
-        } else if (target === 'android') {
-          document.getElementById('android-btn').style.display = 'inline-flex';
-        }
-        document.getElementById('home-link').style.display = 'inline-block';
+      function showElem(id, displayMode) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = displayMode || 'inline-flex';
+      }
+      function hideElem(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      }
+      function setText(id, text) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = text;
+      }
+
+      function showStoreFallback(target) {
+        hideElem('spinner');
+        setText('heading', '앱이 설치되어 있지 않나요?');
+        setText('subheading', 'BuyYou 앱을 설치하면 인사이트를 바로 확인할 수 있어요.');
+        showElem('stores', 'flex');
+        if (target === 'ios') showElem('ios-btn');
+        else if (target === 'android') showElem('android-btn');
+        showElem('home-link', 'inline-block');
       }
 
       function showDesktopFallback() {
-        document.getElementById('spinner').style.display = 'none';
-        document.getElementById('heading').textContent = '모바일에서 열어주세요';
-        document.getElementById('subheading').textContent =
-          'BuyYou 는 iOS / Android 모바일 앱입니다. 휴대폰에서 이 링크를 열어주세요.';
-        document.getElementById('stores').style.display = 'flex';
-        document.getElementById('ios-btn').style.display = 'inline-flex';
-        document.getElementById('android-btn').style.display = 'inline-flex';
-        document.getElementById('home-link').style.display = 'inline-block';
+        hideElem('spinner');
+        setText('heading', '모바일에서 열어주세요');
+        setText('subheading', 'BuyYou 는 iOS / Android 모바일 앱입니다. 휴대폰에서 이 링크를 열어주세요.');
+        showElem('stores', 'flex');
+        showElem('ios-btn');
+        showElem('android-btn');
+        showElem('home-link', 'inline-block');
       }
 
+      // 카톡 in-app 브라우저 — 가장 우선 분기. iOS/Android 위에서도 카톡 webview 면 카톡 처리.
+      if (isKakao) {
+        // 즉시 외부 브라우저 호출 시도 + UI 변경.
+        setText('heading', '외부 브라우저로 이동 중...');
+        setText('subheading', '카톡 외부 브라우저로 다시 열어 BuyYou 앱이 자동으로 실행되도록 해요.');
+
+        // 자동 시도 — 거의 즉시(미세 delay 로 paint 보장).
+        setTimeout(function () {
+          window.location.href = KAKAO_EXTERNAL;
+        }, 100);
+
+        // 자동 시도가 실패한 케이스 — 카톡 정책 변경 / 일부 기기 / 사용자가 외부 브라우저 띄우는
+        // OS 권한 alert 을 거부 등. 1.5초 뒤에도 여전히 이 페이지에 머물러 있으면 명시 버튼 노출.
+        setTimeout(function () {
+          if (document.hidden) return; // 외부 브라우저로 이동 성공
+          hideElem('spinner');
+          setText('heading', 'BuyYou 앱에서 보기');
+          setText('subheading', '아래 버튼을 누르면 카톡 밖에서 인사이트가 열려요.');
+
+          var btn = document.getElementById('open-app-btn');
+          btn.href = KAKAO_EXTERNAL;
+          btn.style.display = 'inline-flex';
+          showElem('stores', 'flex');
+          showElem('ios-btn');     // 미설치 사용자 안전망
+          showElem('android-btn'); // 미설치 사용자 안전망
+          showElem('kakao-hint', 'block');
+          showElem('home-link', 'inline-block');
+        }, 1500);
+        return;
+      }
+
+      // 일반 모바일 브라우저 — Universal Links / App Links 가 작동했어야 정상. 여기 도달 = 미설치.
       if (isIOS) {
-        // iOS: Universal Links 가 작동했다면 OS 가 이미 가로챘을 것. 1.2초 후에도
-        // 여기 머물러 있다면 미설치이거나 검증 실패 → App Store 자동 redirect.
-        setTimeout(function () {
-          // 페이지가 여전히 visible 이면 redirect. background 로 갔다면 (= 앱이
-          // 가로챘다면) redirect 발생해도 사용자에게 보이지 않음 — 안전.
-          window.location.replace(IOS_STORE);
-        }, 1200);
-        // 추가 안전망: 3초 뒤에도 페이지 살아있으면 fallback UI.
-        setTimeout(function () {
-          if (!document.hidden) showFallback('ios');
-        }, 3000);
+        setTimeout(function () { window.location.replace(IOS_STORE); }, 1200);
+        setTimeout(function () { if (!document.hidden) showStoreFallback('ios'); }, 3000);
       } else if (isAndroid) {
-        setTimeout(function () {
-          window.location.replace(ANDROID_STORE);
-        }, 1200);
-        setTimeout(function () {
-          if (!document.hidden) showFallback('android');
-        }, 3000);
+        setTimeout(function () { window.location.replace(ANDROID_STORE); }, 1200);
+        setTimeout(function () { if (!document.hidden) showStoreFallback('android'); }, 3000);
       } else {
-        // 데스크톱 — redirect 하지 않고 명시적 안내. 즉시 fallback UI.
         showDesktopFallback();
       }
     })();
