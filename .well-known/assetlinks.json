@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.buyyou.app",
+      "sha256_cert_fingerprints": [
+        "7A:5C:5B:EC:FF:56:E1:52:EC:90:D9:34:2B:68:B7:74:1F:3D:01:F8:E3:1F:96:5E:06:2C:04:F7:17:EA:4F:84"
+      ]
+    }
+  }
+]
