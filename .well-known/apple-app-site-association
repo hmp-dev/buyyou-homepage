@@ -7,6 +7,10 @@
           {
             "/": "/i/*",
             "comment": "Universal Links — 공유받은 BuyYou 인사이트 링크를 앱에서 직행으로 연다."
+          },
+          {
+            "/": "/b/*",
+            "comment": "Universal Links — 공유받은 BuyYou 게시판 글을 앱에서 직행으로 연다."
           }
         ]
       }

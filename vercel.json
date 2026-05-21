@@ -32,6 +32,10 @@
     {
       "source": "/i/:insightId",
       "destination": "/i.html"
+    },
+    {
+      "source": "/b/:postId",
+      "destination": "/b.html"
     }
   ]
 }
